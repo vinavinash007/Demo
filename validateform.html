@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <form id="myform">
+            First Name : <input type="text" id="first_name" required /> <br />
+            Last Name : <input type="text" id="last_name" required /><br />
+            Email : <input type="email" id="my_email" required /><br />
+            Password : <input type="password" id="pass" /><br />
+            Confirm Password : <input type="password" id="confpass" /><br />
+            <input type="button" value="submit" onclick="validateForm()" />
+
+            <input type="button" value="update" onclick="UpdateUser()" />
+
+            <input type="button" value="clear" onclick="clearForm()" />
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+        <div id="displaymsg"></div>
+    </section>
+</body>
+
+
+<script type="module">
+    // The validateForm() function in the provided code snippet is responsible for validating the form
+    //  input fields before submission. 
+
+    function validateForm() {
+        var FirstName = document.getElementById("first_name").value;
+        var LastName = document.getElementById("last_name").value;
+        var Email = document.getElementById("my_email").value;
+        var Password = document.getElementById("pass").value;
+        var ConfirmPassword = document.getElementById("confpass").value;
+
+
+        // Check if any field is empty
+        if (FirstName == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">First Name is required</span>';
+        else if (LastName == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Last Name is required</span>';
+        else if (Email == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Email is required</span>';
+        else if (Password == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Password is required</span>';
+        else if (ConfirmPassword != Password)
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Password Mismatch</span>';
+        else {
+            // If all fields are filled, display a success message
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: green;">Form submitted successfully</span>';
+            // Call the function to display data in the table
+            displaydata(FirstName, LastName, Email);
+        }
+
+
+    }
+
+
+    //    The clearForm() function is used to reset the form fields to their default values. When this
+    //    function is called, it targets the form with the id "myform" and resets all the input fields
+    //    within that form to their initial state. This means that any text entered into the form fields
+    //    will be cleared, and any default values or placeholders set in the HTML will be restored. 
+    function clearForm() {
+        document.getElementById("myform").reset();
+    }
+
+    var users = [];
+    function displaydata(fname, lname, eemail) {
+
+        users.push({ "firstname": fname, "lastname": lname, "Email": eemail });
+        var row = "";
+        for (let i = 0; i < users.length; i++)
+            row += "<tr><td>" + users[i].firstname + "</td><td>" + users[i].lastname + "</td><td>" + users[i].Email + "</td><td><button onclick='EditUser(" + i + ")' >Edit</button></td><td><button onclick='DeleteUser(" + i + ")' >Delete</button></td></tr>";
+
+        document.getElementById('table-body').innerHTML = row;
+    }
+
+    //  <!-- The EditUser function in the provided code snippet is responsible for populating the form fields
+    //  with the data of a selected user for editing. Here's a breakdown of what the function does: -->
+    let arrayindex;
+    function EditUser(i) {
+        arrayindex = i;
+        document.getElementById("first_name").value = users[i].firstname;
+        document.getElementById("last_name").value = users[i].lastname;
+        document.getElementById("my_email").value = users[i].Email;
+        var row = "";
+        for (let i = 0; i < users.length; i++)
+             row += "<tr><td>" + users[i].firstname + "</td><td>" + users[i].lastname + "</td><td>" + users[i].Email + "</td><td><button onclick='EditUser(" + i + ")' >Edit</button></td><td><button onclick='DeleteUser(" + i + ")' >Delete</button></td></tr>";
+
+        document.getElementById('table-body').innerHTML = row;
+    }
+
+    //    <!-- The UpdateUser() function in the provided code snippet is responsible for updating the user
+    //    data in the users array based on the changes made in the form fields. Here's a breakdown of
+    //    what the function does: -->
+    function UpdateUser() {
+        users[arrayindex].firstname = document.getElementById("first_name").value;
+        users[arrayindex].lastname = document.getElementById("last_name").value;
+        users[arrayindex].Email = document.getElementById("my_email").value;
+        var row = "";
+        for (let i = 0; i < users.length; i++)
+            row += "<tr><td>" + users[i].firstname + "</td><td>" + users[i].lastname + "</td><td>" + users[i].Email + "</td><td><button onclick='EditUser(" + i + ")' >Edit</button></td><td><button onclick='DeleteUser(" + i + ")' >Delete</button></td></tr>";
+
+        document.getElementById('table-body').innerHTML = row;
+    }
+
+
+    // let myarray = [12, 23, 34, 45, 56, 67, 78, 89, 90];
+    // let slicearray = myarray.slice(i, 1);
+    // console.log(slicearray); 
+
+//   <!-- The DeleteUser(i) function in the provided code snippet is responsible for deleting a user entry
+//   from the users array based on the index i passed as a parameter. Here's a breakdown of what
+//   the function does: -->
+    function DeleteUser(i) {
+        users.splice(i, 1);
+        var row = "";
+        for (let i = 0; i < users.length; i++)
+            row += "<tr><td>" + users[i].firstname + "</td><td>" + users[i].lastname + "</td><td>" + users[i].Email + "</td><td><button onclick='EditUser(" + i + ")' >Edit</button></td><td><button onclick='DeleteUser(" + i + ")' >Delete</button></td></tr>";
+
+        document.getElementById('table-body').innerHTML = row;
+    }
+
+
+    // function sayhello() {
+    //     alert("hello")
+    // }
+
+    // setTimeout(sayhello,4000);
+
+
+
+    //     function sayhellointerval() {
+    //      alert("hello")
+    // }
+
+    // setInterval(sayhellointerval,4000);
+
+
+    async function A1() {
+        alert("Cyber Alert 1")
+    }
+    // setTimeout(A1,2000);
+
+    async function A2() {
+        alert("Cyber Alert 2")
+    }
+    // setTimeout(A2,2000);
+
+    async function A3() {
+        alert("Cyber Alert 3")
+    }
+    // setTimeout(A3,2000);
+
+    await f1();
+    await f2();
+    await f3();
+
+
+
+
+
+
+
+
+    "use strict"
+
+    b = 10
+    console.log(b);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
+

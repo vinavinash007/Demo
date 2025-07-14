@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and general layout */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top to allow scrolling if content is long */
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container-wrapper {
+            display: flex;
+            flex-direction: column; /* Stack form and table vertically */
+            gap: 30px; /* Space between form and table */
+            width: 100%;
+            max-width: 900px; /* Max width for the entire content area */
+        }
+        .form-container, .table-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+        }
+        h1 {
+            color: #1a202c;
+            margin-bottom: 25px;
+            font-size: 2.5rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            text-align: center;
+        }
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0; /* border-gray-300 */
+            border-radius: 8px; /* rounded-lg */
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #6366f1; /* indigo-500 */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* ring-indigo-500 with opacity */
+        }
+        button[type="submit"],
+        input[type="button"] {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #4f46e5; /* indigo-600 */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+        button[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #4338ca; /* indigo-700 */
+            transform: translateY(-2px);
+        }
+        button[type="submit"]:active,
+        input[type="button"]:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(79, 70, 229, 0.3);
+        }
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .message.error {
+            background-color: #fee2e2; /* red-100 */
+            color: #ef4444; /* red-600 */
+            border: 1px solid #fca5a5; /* red-300 */
+        }
+        .message.success {
+            background-color: #dcfce7; /* green-100 */
+            color: #22c55e; /* green-600 */
+            border: 1px solid #86efac; /* green-300 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0; /* gray-200 */
+        }
+        th {
+            background-color: #e0e7ff; /* indigo-100 */
+            color: #3730a3; /* indigo-800 */
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f8fafc; /* gray-50 */
+        }
+        tbody tr:hover {
+            background-color: #eff6ff; /* blue-50 */
+            transition: background-color 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper">
+        <section class="form-container">
+            <h1 class="text-4xl font-bold mb-6">Register Account</h1>
+
+            <form id="registrationForm" class="space-y-5" onsubmit="return validateForm(event)">
+                <div>
+                    <label for="firstName" class="block text-sm font-medium text-gray-700">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                </div>
+
+                <div>
+                    <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+
+                <div id="displaymsg" class="message hidden" role="alert">
+                    <!-- Validation messages will be displayed here -->
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section class="table-container">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Registered Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- User data will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        // Array to store registered users
+        var users = [];
+
+        /**
+         * Displays a message in the validation message div with appropriate styling.
+         * @param {HTMLElement} divElement - The div element to display the message in.
+         * @param {string} message - The message to display.
+         * @param {string} type - 'error' for red styling, 'success' for green styling.
+         */
+        function displayMessage(divElement, message, type) {
+            divElement.innerHTML = message;
+            divElement.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700', 'border-red-300', 'border-green-300');
+            if (type === 'error') {
+                divElement.classList.add('error'); // Uses custom CSS class for error
+            } else if (type === 'success') {
+                divElement.classList.add('success'); // Uses custom CSS class for success
+            }
+        }
+
+        /**
+         * Validates the registration form fields.
+         * Prevents form submission if validation fails and displays an error message.
+         * If validation passes, it adds the user to the table and clears the form.
+         * @param {Event} event - The event object from the form submission.
+         * @returns {boolean} - Always false to prevent default form submission, as we handle it with JS.
+         */
+        function validateForm(event) {
+            // Prevent the default form submission behavior (page refresh)
+            event.preventDefault();
+
+            // Get references to the input fields and trim whitespace from name and email
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const msgDiv = document.getElementById("displaymsg");
+
+            // Clear any previous message and hide the message div
+            msgDiv.innerHTML = '';
+            msgDiv.classList.add('hidden');
+            msgDiv.classList.remove('error', 'success'); // Remove custom styling classes
+
+            // Validation logic
+            if (firstName === "") {
+                displayMessage(msgDiv, "First Name is required", "error");
+                return false;
+            } else if (lastName === "") {
+                displayMessage(msgDiv, "Last Name is required", "error");
+                return false;
+            } else if (email === "") {
+                displayMessage(msgDiv, "Email is required", "error");
+                return false;
+            } else if (password === "") {
+                displayMessage(msgDiv, "Password is required", "error");
+                return false;
+            } else if (confirmPassword === "") {
+                displayMessage(msgDiv, "Confirm Password is required", "error");
+                return false;
+            } else if (password !== confirmPassword) {
+                displayMessage(msgDiv, "Passwords do not match", "error");
+                return false;
+            }
+
+            // If all validations pass
+            displayMessage(msgDiv, "Registration successful!", "success");
+
+            // Add user data to the global array
+            users.push({ "firstName": firstName, "lastName": lastName, "email": email });
+
+            // Display the updated data in the table
+            displayDataInTable();
+
+            // Clear the form fields after successful submission
+            document.getElementById("registrationForm").reset();
+
+            // Return false to explicitly prevent the form from submitting (though preventDefault already does this)
+            return false;
+        }
+
+        /**
+         * Renders the data from the 'users' array into the HTML table.
+         * This function rebuilds the entire table body each time it's called.
+         */
+        function displayDataInTable() {
+            const tableBody = document.getElementById('table-body');
+            let rowsHtml = ""; // Initialize an empty string to build the table rows
+
+            // Loop through the users array and create a table row for each user
+            for (let i = 0; i < users.length; i++) {
+                rowsHtml += `
+                    <tr>
+                        <td>${users[i].firstName}</td>
+                        <td>${users[i].lastName}</td>
+                        <td>${users[i].email}</td>
+                    </tr>
+                `;
+            }
+            // Update the innerHTML of the table body with all generated rows
+            tableBody.innerHTML = rowsHtml;
+        }
+
+        // Initial call to display any pre-existing data (though none exists in this example)
+        // or to ensure the table body is initially empty if no users.
+        displayDataInTable();
+    </script>
+</body>
+</html>

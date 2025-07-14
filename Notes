@@ -1,0 +1,568 @@
+HTML4 & 5
+JavaScript
+CSS
+BootStrap
+ReactJS
+
+HTML - HYPERTEXT MARKUP LANGUAGE
+CSS - CASCADING STYLE SHEETS
+
+Types of CSS 
+1.InlineCSS
+2.InternalCSS
+3.ExternalCSS
+
+Fundamental of CSS
+1.Class
+(.) is used to represent class in CSS
+2.ID
+(#) is used to represent id in CSS
+3.Tag
+(<tag>) is used to represent tag in CSS
+
+Front-end       |       Back-end
+----------------|-------------------
+1.HTML          |   1.Nodejs
+2.CSS           |   2.Python
+3.JavaScript    |   3.Java
+4.ReactJS       |   4.PHP
+5.BootStrap     |   5.DataBase
+6.VueJS         |   6.SQL | NoSQL
+7.AngularJS     |   7.Git(Version Control System)
+8.TypeScript    |   8.Cloud | Server
+
+HTML 4
+html 4 totally depends on div tags
+
+HTML 5 
+html 4 has semantic elements
+such as New Semantic Elements in HTML5
+HTML5 introduced meaningful tags to replace generic <div> elements:
+
+<header>, <footer>, <section>, <article>, <nav>, <main>, etc.
+
+Lists
+1.ordered list
+2.unordered list
+
+<li>
+li is a child taf for both, OL as well UL.
+
+Statis & Dynamic
+
+Static
+1. If a project is developed without Backend-Integrated known as static project
+
+Dynamic
+1. If a project is developed with Backend-Integrated known as dynamic project
+
+Margin & Padding
+
+
+
+Favicon:- 
+
+Cookies(2mb approx)
+
+WebStorage(10-20mb approx)
+1. Local Storage
+
+one to many transaction
+
+2. Session Storage
+
+it is one to one transaction 
+
+
+
+
+
+img
+1. Used to enable image (JPG, PNG, GIF, ETC.)
+2. Not interactive - just displays the image 
+3. Lightweight -loads fast
+4. Cannot load html, videos or external sites
+5. No security risks involved
+
+
+iframe
+1. Used to embed external contemt or fi=ull web pages
+2. Can embed videos, maps , forms, even other websites
+3. Fully interactive - user can scroll, click , play, etc.
+4. Heavily than <img>-may affect performance
+
+
+
+Bootstrap 
+
+UTF-8
+1. Unicode Transformation format is used as 8-bit un html-5,to make our site globally readable and adaptable.
+
+2. UTF-8 is used to code all the characters on the world. it is used to encode all
+3. Amoung 8-bits english is occupied as 1-bit.
+4. Meta tags are used for SEO purpose (Search-Engine-Optimization)
+5. in html-4 we have UTF as 4-bit (UTF-4) i.e can be used for only single language.
+6. In html-5 we have UTF-8 i.e can be used for multiple languages.
+
+Rwd
+(Reponsive web design)
+
+SEO (search engine optimization)
+1. <meta>
+meta tag is used to define the content od the SEO.
+we use content as
+
+Primary 
+
+
+
+
+RWD
+Responsive web design
+1. Bootstrap will adjust component based on the screen size
+
+1. Layout
+2. Grid System 
+
+Layout Examplws:-
+
+mobile <576px
+mobile large screen >=576px
+tablet >= 768px
+laptops >= 992px
+Dsktop/Projectors >= 1200px
+
+Grid system works on 12 columns system i.e needs to call the col between 12 only 
+like
+col-sm-2
+col-md-8
+col-sm-2
+
+These column should be called iside a row.
+
+whenever we call a row a column should also be called accordingly.
+we can't call row inside a row & column inside a column.
+
+
+        Extra small   Small     Medium  Large   Extra large  
+            <576px      ≥576px  ≥768px  ≥992px  ≥1200px	
+
+.container	    100%	540px	720px	960px	1140px
+.container-sm	100%	540px	720px	960px	1140px
+.container-md	100%	100%	720px	960px	1140px
+.container-lg	100%	100%	100%	960px	1140px
+.container-xl	100%	100%	100%	100%	1140px
+.container-fluid	100%	100%	100%	100%	100%
+
+
+
+javascript
+    1.is is a client side scripting language
+    2.it is used to validate pages
+    3.it can update content ,modify properties and execute code without page reload
+    4.it is a hifh level interupted programing language
+
+
+    javascript variables
+    1.let(local scoped)
+    2.var(global scoped)
+    3.const(constant)
+
+    local scoped (let):
+    a variable canot be accessed outside a function without defining
+
+
+
+Global Scop (var) :
+a variable can be accessed outside a function without defining .
+
+print statement in Document page:
+document.write(variable);
+
+Debugging:
+console.log(variable)
+
+
+data types in js 
+1.primitive
+2.non-primitive
+
+
+1.primitive
+    a.string:textual data
+    b.number:integers,floating-pointing numbers,special values like NaN and infinity
+    c.boolean:logical values (true or FALSE)
+    d.underfined:variable declared but not assigned a value
+    e.null: intentional absence of values
+    f.symbol: unique idenifiers  (es6).(es6=ecmascript 2015(es6))
+
+2.non-primitive
+    a.object:key-value pairs.
+    b.array:indexed collections.
+    c.funtion:reusable block of code.
+
+
+
+1.[]
+Array
+2.{}
+Object
+3.()
+Function
+4.[{}]
+Array of Object
+
+
+
+
+JS Function
+Funxtion Syntax
+
+Key Points
+Function definition 
+Function calling 
+
+Questions Related to JS (let, var, const, function)
+
+1.Declare a variable inside a block using let and try to access it outside the block. What happens?
+
+2.Create a block where you define a constant city with value "Mumbai". Try logging it outside the block.
+
+3.Declare a global let variable and a block-level let variable with the same name. Log both separately.
+
+4.Create a const object called student with name and marks properties. Print both values.
+
+5.Add a new property called grade to the student object and print the updated object.
+
+6.Try reassigning the entire student object to a new one. What happens? Why?
+
+7.Write an object car inside a block using const. Try accessing it outside the block. Explain the result.
+
+8.Create an object with properties firstName, lastName, and a method getFullName() that returns the full name.
+
+9.Use document.write() and console.log() to display the same object's values. What’s the difference?
+
+10.Create a function called myname() that declares a local variable name with value "John" and prints it using both console.log() and document.write().
+
+11.Modify the myname() function to accept a parameter called name and print that name instead of the hardcoded "John". Call the function with any name.
+
+12.Inside a function, declare a variable name using let and try to log it outside the function. Observe and explain what happens.
+
+13.Write a function printTwice() that takes one argument message and prints it twice — once to the console and once to the document.
+
+14.Create a function that accepts firstName and lastName as parameters, combines them, and displays the full name using document.write().
+
+15.Write a function that returns a name instead of printing it. Then, call the function and store the result in a variable, and log it.
+
+16.Write a function that asks the user for their name using prompt(), and then displays it using both console.log() and document.write().
+
+17.Create a function named clearPage() that clears the document content using document.body.innerHTML = "".
+
+
+
+
+
+
+
+
+
+CRUD
+Create
+Read
+Update
+Delete
+
+
+Alert
+opens a alert popup
+
+Prompt
+open a pop up with input field as prompt
+
+
+
+Operators =
+
+1. Arthmetic Operators = Used for mathematical Calculations.
+
+Operator | Description | Example | Result
+a. +        Additional      5 + 3  =  8
+b. -        Substraction    5 - 3  =  2
+c. *        Multiplication  5 * 3  =  15
+d. /        Division        5 / 2  =  2.5
+e. %    Modulus (remainder) 5 % 2  =  1
+f. **       Exponentiation  5 ** 2 =  25
+g. ++       Increment    let x = 5; x++ 6
+h. --       Decrement    let x = 5; x-- 4
+
+| Operator | Description            | Example                    | Result |
+| -------- | ---------------------- | -------------------------- | ------ |
+| `+`      | Addition               | `5 + 3`                    | `8`    |
+| `-`      | Subtraction            | `5 - 3`                    | `2`    |
+| `*`      | Multiplication         | `5 * 3`                    | `15`   |
+| `/`      | Division               | `5 / 2`                    | `2.5`  |
+| `%`      | Modulus (remainder)    | `5 % 2`                    | `1`    |
+| `**`     | Exponentiation (power) | `5 ** 2`                   | `25`   |
+| `++`     | Increment              | `let x = 5; x++` → `x = 6` |        |
+| `--`     | Decrement              | `let x = 5; x--` → `x = 4` |        |
+
+
+
+2. Assignment Operators Used to assign values to a variables.
+
+Operator | Description | Example | Result
+a. =        Additional      5 + 3  =  8
+b. +=        Substraction    5 - 3  =  2
+c. -=       Multiplication  5 * 3  =  15
+d. *=       Division        5 / 2  =  2.5
+e. /=   Modulus (remainder) 5 % 2  =  1
+f. %=       Exponentiation  5 ** 2 =  25
+g. **=       Increment    let x = 5; x++ 6
+
+
+| Operator | Description         | Example           | Result    |
+| -------- | ------------------- | ----------------- | --------- |
+| `=`      | Assign value        | `let x = 5`       | `x = 5`   |
+| `+=`     | Add and assign      | `x += 3` (x = 5)  | `x = 8`   |
+| `-=`     | Subtract and assign | `x -= 2` (x = 5)  | `x = 3`   |
+| `*=`     | Multiply and assign | `x *= 4` (x = 5)  | `x = 20`  |
+| `/=`     | Divide and assign   | `x /= 2` (x = 5)  | `x = 2.5` |
+| `%=`     | Modulus and assign  | `x %= 2` (x = 5)  | `x = 1`   |
+| `**=`    | Exponent and assign | `x **= 2` (x = 5) | `x = 25`  |
+
+
+
+
+
+3. Compare Operators = Used to compare two values.
+
+Operator | Description | Example | Result
+a. (==)        Additional      5 + 3  =  8
+b. (===)       Strict equal  5 === "5" = True
+c. ===     (type=value)     5 === "5" = True
+d. !=      Division        5 / 2  =  2.5
+e. !==   Modulus (remainder) 5 % 2  =  1
+f. >      Exponentiation  5 ** 2 =  25
+g. <       Increment    let x = 5; x++ 6
+h. >=       Decrement    let x = 5; x-- 4
+h. <=>       Decrement    let x = 5; x-- 4
+
+
+
+| Operator | Description                         | Example     | Result  |
+| -------- | ----------------------------------- | ----------- | ------- |
+| `==`     | Equal to (compares **value only**)  | `5 == "5"`  | `true`  |
+| `===`    | Strict equal (value **and** type)   | `5 === "5"` | `false` |
+| `!=`     | Not equal (compares **value only**) | `5 != "5"`  | `false` |
+| `!==`    | Strict not equal (value and type)   | `5 !== "5"` | `true`  |
+| `>`      | Greater than                        | `5 > 3`     | `true`  |
+| `<`      | Less than                           | `3 < 5`     | `true`  |
+| `>=`     | Greater than or equal to            | `5 >= 5`    | `true`  |
+| `<=`     | Less than or equal to               | `4 <= 3`    | `false` |
+
+
+4. Logical Operators = Used for logical operators.
+
+Operator | Description | Example | Result
+a. &&        Additional      5 + 3  =  8
+b. `       Strict equal  5 === "5" = True
+c. !     (type=value)     5 === "5" = True
+
+
+
+| Operator | Description | Example             | Result     |          |   |           |        |
+| -------- | ----------- | ------------------- | ---------- | -------- | - | --------- | ------ |
+| `&&`     | Logical AND | `(5 > 3 && 5 < 10)` | `true`     |          |   |           |        |
+| \`       |             | \`                  | Logical OR | \`(5 < 3 |   | 5 < 10)\` | `true` |
+| `!`      | Logical NOT | `!(5 === 5)`        | `false`    |          |   |           |        |
+
+
+
+
+5. String Operators = Used for manipulate strings.
+
+Operator | Description | Example | Result
+a. +        Concatenation      5 + 3  =  8
+b. +=       Strict equal  5 === "5" = True
+
+
+| Operator | Description             | Example                         | Result          |
+| -------- | ----------------------- | ------------------------------- | --------------- |
+| `+`      | Concatenation (combine) | `"Hello " + "World"`            | `"Hello World"` |
+| `+=`     | Add and assign          | `let msg = "Hi "; msg += "Bob"` | `"Hi Bob"`      |
+
+
+
+
+
+
+
+
+Git Hub Commands 
+when a new repo is created to push the code into it 
+
+1. To Initiali .git into theproject 
+git init
+
+2. To ad da readme file into the git 
+git add README.md
+
+3. To add all the files in the current display 
+git add.
+
+4. To commit all the changed into the git 
+git commit - "first commit"
+
+5. To create a branch for the local changes 
+git branch -M main
+
+6. To add the git account to project with repo link
+git remote add origin https://github.com/vinavinash007/Demo.git
+
+7. To push the code into the branch either push or publish
+gipublishedt push -u origin main 
+
+8. When eber a new branch is created that need to be published to have the repo else it will be in the local only.
+
+
+
+
+a++
+
+++a
+
+
+
+
+            let a= [0,1,2,3,4,5,6];
+            console.log(a)
+
+
+            var b= [2,3,4,5,6,7,8,4,9];
+            console.log(b(2)); // THis will throw an error because b is array, not a function
+
+
+            var c= [21,22,23,24,25,26,27,28,29,30];
+            console.log(c[2]); // This will correctly access the third element of the array
+
+
+            var d= [52,53,54,55,56,57,58,59,60];
+            console.log(d[9]); // This will throw an error (Undefined) because the index 9 is out of bounds for the array,
+            // which only has indaices from 0 to 8 the correct index for the last 
+
+
+            var e= [62,63,64,65,66,67,68,69,70];
+            console.log(e[8]); // this will correctly access the last element of the array 
+            // which is 70
+
+
+
+1. Push
+Adding(inserting) into the current array
+
+2. Pop
+Deleting 
+
+
+   var a= [1,2,3,4,5];
+(index a= [0,1,2,3,4])
+(let i = 0; i < a.length; i++) { (i=0)
+here i= 0
+    console.log(a[i]); // result a= 1;
+}
+
+   <!-- var a= [1,2,3,4,5]; -->
+(index a= [0,1,2,3,4])
+(let i = 0; i < a.length; i++) {  (i=1)
+    console.log(a[i]); // result a= 2;
+}
+
+   <!-- var a= [1,2,3,4,5]; -->
+(index a= [0,1,2,3,4])
+(let i = 0; i < a.length; i++) {  (i=2)
+    console.log(a[i]); // result a= 3;
+}
+
+   <!-- var a= [1,2,3,4,5]; -->
+(index a= [0,1,2,3,4])
+(let i = 0; i < a.length; i++) {  (i=3)
+    console.log(a[i]); // result a= 4;
+}
+
+   <!-- var a= [1,2,3,4,5]; -->
+(index a= [0,1,2,3,4])
+(let i = 0; i < a.length; i++) {  (i=4)
+    console.log(a[i]); // result a= 5;
+}
+
+   <!-- var a= [1,2,3,4,5]; -->
+(index a= [0,1,2,3,4])
+(let i = 0; i < a.length; i++) {  (i=5)
+    console.log(a[i]); // result a= 1;
+}
+
+
+
+node -v 
+to verify the node version 
+
+React JS
+1. It is a JavaScript Library
+2. React JS is used ti create UI components
+3. Virtual DOM (Document Object Model) Support
+4. Its very fast and performance
+5. single 
+
+
+
+
+
+
+
+
+
+setup 
+
+1. Navigate to project folder/directory 
+cmd: cd folfername 
+
+2. how to create react setup
+cmd: npm install create-react-app
+
+3. how to create react project 
+cmd: npx create-react-app projectname 
+
+#note: Project name should be in small letters
+
+4. run/execute react project
+cmd: npm start 
+
+
+
+Git Hub Commands 
+when a new repo is created to push the code into it 
+
+1. To Initiali .git into theproject 
+git init
+
+2. To ad da readme file into the git 
+git add README.md
+
+3. To add all the files in the current display 
+git add .
+
+4. To commit all the changed into the git 
+git commit -M "first commit"
+
+5. To create a branch for the local changes 
+git branch -M maingit commit -m "first commit"
+
+
+6. To add the git account to project with repo link
+git remote add origin https://github.com/vinavinash007/Demo.git
+
+7. To push the code into the branch either push or publish
+git push -u origin main 
+
+8. When eber a new branch is created that need to be published to have the repo else it will be in the local only.
+

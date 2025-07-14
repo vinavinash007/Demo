@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <form>
+  <!-- <form action="#" method="POST"> -->
+    <!-- <h2>Register</h2> -->
+    
+    First Name: <input type="text" id="first_Name" name="firstName" required /></br>
+
+    Last Name: <input type="text" id="last_Name" name="lastName" required /><br>
+
+    Email: <input type="email" id="my_email" name="email" required /><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required /><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required /><br>
+
+    <!-- <button type="submit">Submit</button> -->
+     <input type="button" value="Submit" onclick="validateform()" />
+  </form>
+  <table>
+    <thead>
+        <tr>
+            <th>First Name |</th>
+            <th>Last Name |</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+        <!-- Data will be insterted here -->
+    </tbody>
+  </table>
+  <div id="displaymsg"></div>
+    </section>
+</body>
+<script>
+    function validateform() {
+        var FirstName = document.getElementById("first_name").value;
+        var LastName = document.getElementById("last_name").value;
+        var Email = document.getElementById("my_email").value;
+        var Password = document.getElementById("password").value;
+        var ConfirmPassword = document.getElementById("confirmPassword").value;
+        // var msgDiv = document.getElementById("displaymsg");
+        //  msgDiv.innerHTML = ""; // Clear any previous message
+
+
+
+
+
+        if(FirstName=="")document.getElementById("displaymsg").innerHTML="Name error"
+
+
+    //   if (firstName === "") {
+    //     msgDiv.innerHTML = '<span style="color:red;">First Name is required</span>';
+    //   } else if (lastName === "") {
+    //     msgDiv.innerHTML = '<span style="color:red;">Last Name is required</span>';
+    //   } else if (email === "") {
+    //     msgDiv.innerHTML = '<span style="color:red;">Email is required</span>';
+    //   } else if (password === "") {
+    //     msgDiv.innerHTML = '<span style="color:red;">Password is required</span>';
+    //   } else if (confirmPassword === "") {
+    //     msgDiv.innerHTML = '<span style="color:red;">Confirm Password is required</span>';
+    //   } else if (password !== confirmPassword) {
+    //     msgDiv.innerHTML = '<span style="color:red;">Passwords do not match</span>';
+    //   }
+
+
+
+        // check if any field is empty 
+        // if (FirstName == "")  document.getElementById("first_name").innerHTML =
+        //   '<span style="color: red;">First Name is Required</span';
+    //     else if (LastName == "")
+    //     document.getElementById("last_name").innerHTML =
+    // '<span style="color: red;">Last Name is Required</span';
+    //     else if (Email == "")
+    //     document.getElementById("my_email").innerHTML =
+    // '<span style="color: red;">Email is Required</span';
+    //     else if (Password == "")
+    //     document.getElementById("password").innerHTML =
+    // '<span style="color: red;">Email is Required</span';
+    //     else if (Password !== ConfirmPassword)
+    //     document.getElementById("confirmPassword").innerHTML =
+    //     '<span style="color: red;">Password Not A Match !</span';
+
+            // call the function to display data in the table
+            // displaydata(firstName, lastName, email);
+
+
+            // let a= [0,1,2,3,4,5,6];
+            // console.log(a)
+
+
+            // var b= [2,3,4,5,6,7,8,4,9];
+            // console.log(b(2)); // THis will throw an error because b is array, not a function
+
+
+            // var c= [21,22,23,24,25,26,27,28,29,30];
+            // console.log(c[2]); // This will correctly access the third element of the array
+
+
+            // var d= [52,53,54,55,56,57,58,59,60];
+            // console.log(d[9]); // This will throw an error (Undefined) because the index 9 is out of bounds for the array,
+            // // which only has indaices from 0 to 8 the correct index for the last 
+
+
+            // var e= [62,63,64,65,66,67,68,69,70];
+            // console.log(e[8]); // this will correctly access the last element of the array 
+            // // which is 70
+
+    }
+
+
+                var users = [];
+            function displaydata(firstName, lastName, email) {
+                users.push({"firstName": fname, "lastName": lname, "email": eml});
+                var row = "";
+                for (let i = 0; i < users.length; i++)
+                row += "<tr><td>" + users[i].firstName +"</td><td>" + users[i].lastName +"</td><td>" + users[i].email +"</td></tr>"
+            console.log(users);
+            document.getElementById('table-body').innerHTML = row;
+            }
+
+
+</script>
+</html>

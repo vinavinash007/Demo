@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
+</head>
+<body>
+    <h1>
+        This is JavaScript file.
+    </h1>
+
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="Your name"><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" placeholder="Your email"><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here"></textarea><br>
+
+      <input type="submit" onclick="displayname()" value="Submit">
+    </form>
+    <div id="form-data">
+
+    </div>
+
+
+
+<script>
+   console.log("This is JavaScript file.");
+   document.write("This is JavaScript file.");
+
+
+
+//   let name = "John";
+//   console.log(name);
+//   document.write(name);
+// {
+//    var name = "John";
+// }
+//    console.log(name);
+//    document.write(name);
+
+    // {
+    // const name = "John";
+    // }
+    // console.log(name);
+    // document.write(name);
+
+
+
+    
+    // const person = {
+    //     name: "John ",
+    //     age: 30,
+    // };
+    
+    // console.log(person);
+    // document.write(person.name);
+    // console.log(person.name);
+    // document.write(person.age);
+    // console.log(person.age);
+
+    // function name = myname
+    // {} function definition
+    // function calling = myname();
+
+    //function myname(){
+       // let name = "John";
+       // console.log(name)
+        //document.write(name);
+    //}
+    //myname();
+
+
+
+
+
+
+
+    function displayname(){
+        // Prevent the form from submitting and refreshing the page
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+        // pushing the data (name, email, message) to the div
+        console.log(name, email, message);
+        document.getElementById("form-data").innerHTML = `<p>Welcome ${name} ${email} ${message}</p>`;
+        document.getElementById("form-data").innerText = `<h1> Welcome ${name} ${email} ${message} </h1>`;
+    }
+
+
+
+
+
+
+    // const person = {
+    //     name: "John",
+    //     age: 30,
+    // }    
+    // console.log(person);
+
+
+
+
+
+
+
+//1.Declare a variable inside a block using let and try to access it outside the block. What happens?
+
+//     {
+//     let blockVar = "I am inside the block";
+//     console.log(blockVar); // Output: I am inside the block
+// }
+// console.log(blockVar); // This would cause a ReferenceError: blockVar is not defined
+
+
+
+// 2.Create a block where you define a constant city with value "Mumbai". Try logging it outside the block.
+
+
+// {
+//     const city = "Mumbai";
+//     console.log(city); // Output: Mumbai
+// }
+// console.log(city); // This would cause a ReferenceError: city is not defined
+
+
+
+// 3.Declare a global let variable and a block-level let variable with the same name. Log both separately.
+
+
+// let myName = "Global John"; // Global let variable
+
+// {
+//     let myName = "Block-level Jane"; // Block-level let variable
+//     console.log("Inside block:", myName); // Output: Inside block: Block-level Jane
+// }
+
+// console.log("Outside block:", myName); // Output: Outside block: Global John
+
+
+
+// 4.Create a const object called student with name and marks properties. Print both values.
+
+
+// const student = {
+//     name: "Alice",
+//     marks: 95
+// };
+
+// console.log("Student Name:", student.name);  // Output: Student Name: Alice
+// console.log("Student Marks:", student.marks); // Output: Student Marks: 95
+
+
+
+// 5.Add a new property called grade to the student object and print the updated object.
+
+
+// const student = {
+//     name: "Alice",
+//     marks: 95
+// };
+
+// student.grade = "A"; // Adding a new property
+
+// console.log("Updated Student Object:", student);
+// // Output: Updated Student Object: { name: 'Alice', marks: 95, grade: 'A' }
+
+
+// 6.Try reassigning the entire student object to a new one. What happens? Why?
+
+
+// const student = {
+//     name: "Alice",
+//     marks: 95
+// };
+
+// // student = { name: "Bob", marks: 80 }; // This would cause a TypeError
+// // console.log(student);
+
+
+
+
+// 7.Write an object car inside a block using const. Try accessing it outside the block. Explain the result.
+
+
+// {
+//     const car = {
+//         make: "Toyota",
+//         model: "Camry"
+//     };
+//     console.log("Inside block:", car); // Output: Inside block: { make: 'Toyota', model: 'Camry' }
+// }
+// // console.log("Outside block:", car); // This would cause a ReferenceError: car is not defined
+
+
+
+
+
+
+// 8.Create an object with properties firstName, lastName, and a method getFullName() that returns the full name.
+
+
+// const person = {
+//     firstName: "Jane",
+//     lastName: "Doe",
+//     getFullName: function() {
+//         return this.firstName + " " + this.lastName;
+//     }
+// };
+
+// console.log("Full Name:", person.getFullName()); // Output: Full Name: Jane Doe
+
+
+
+// 9.Use document.write() and console.log() to display the same object's values. What’s the difference?
+
+
+
+
+// const myObject = {
+//     item1: "Apple",
+//     item2: "Banana"
+// };
+
+// console.log("Using console.log:", myObject); // Shows the object in the console, usually expandable
+// // Output (in console): { item1: 'Apple', item2: 'Banana' }
+
+// document.write("Using document.write: " + myObject); // Converts object to string: "[object Object]"
+// // Output (on page, overwriting content): Using document.write: [object Object]
+
+
+
+// 10.Create a function called myname() that declares a local variable name with value "John" and prints it using both console.log() and document.write().
+
+
+// function myname() {
+//     let name = "John"; // Local variable
+//     console.log("From console.log inside function:", name);
+//     document.write("From document.write inside function: " + name + "&lt;br&gt;");
+// }
+
+// myname(); // Call the function to execute it
+
+
+
+// 13. Write a function `printTwice()` that takes one argument `message` and prints it twice — once to the console and once to the document.
+
+
+
+// function printTwice(message) {
+//     console.log("Console output:", message);
+//     document.write("Document output: " + message + "&lt;br&gt;");
+// }
+
+// printTwice("This is a test message.");
+// printTwice("Another message here.");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 16. Write a function that asks the user for their name using `prompt()`, and then displays it using both `console.log()` and `document.write()`.
+
+
+
+
+
+// function askAndDisplayName(){
+//     const name = prompt("what is your name?");
+//         console.log("User entered name:",name);
+//         document.write("Hello "+ name);
+//     }
+
+
+
+
+
+
+// function askAndDisplayName() {
+//     const userName = prompt("Please enter your name:");
+//     if (userName !== null && userName !== "") { // Check if user entered something
+//         console.log("User's name (from console):", userName);
+//         document.write("User's name (from document): " + userName + "&lt;br&gt;");
+//     } else {
+//         console.log("User did not enter a name.");
+//         document.write("No name entered.&lt;br&gt;");
+//     }
+// }
+
+// askAndDisplayName(); // Uncomment to run this function and prompt the user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

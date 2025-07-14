@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <form id="myform">
+            First Name : <input type="text" id="first_name" required /> <br />
+            Last Name : <input type="text" id="last_name" required /><br />
+            Email : <input type="email" id="my_email" required /><br />
+            Password : <input type="password" id="pass" /><br />
+            Confirm Password : <input type="password" id="confpass" /><br />
+            <input type="button" value="submit" onclick="validateForm()" />
+            <input type="button" value="clear" onclick="clearform()" />
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+        <div id="displaymsg"></div>
+    </section>
+</body>
+
+
+<script>
+<!-- The `validateForm()` function in the provided code is responsible for validating the form input
+fields before submission. Here's a breakdown of what it does: -->
+// <!-- The `validateForm()` function in the provided code is responsible for validating the form input
+// fields before submission. Here's a breakdown of what it does: -->
+    function validateForm() {
+        var FirstName = document.getElementById("first_name").value;
+        var LastName = document.getElementById("last_name").value;
+        var Email = document.getElementById("my_email").value;
+        var Password = document.getElementById("pass").value;
+        var ConfirmPassword = document.getElementById("confpass").value;
+
+
+        // Check if any field is empty
+        if (FirstName == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">First Name is required</span>';
+        else if (LastName == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Last Name is required</span>';
+        else if (Email == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Email is required</span>';
+        else if (Password == "")
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Password is required</span>';
+        else if (ConfirmPassword != Password)
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: red;">Password Mismatch</span>';
+        else {
+            // If all fields are filled, display a success message
+            document.getElementById("displaymsg").innerHTML =
+                '<span style="color: green;">Form submitted successfully</span>';
+            // Call the function to display data in the table
+            //displaydata(FirstName, LastName, Email);
+        }
+
+
+    }
+
+
+// <!-- The `clearform()` function in the provided code is responsible for clearing the form input fields
+// within the form with the id "myform". When this function is called, it uses the `reset()` method to
+// reset all the form fields to their default values or empty states. This can be useful when you want
+// to clear the form fields after submission or when the user wants to reset the form without reloading
+// the page. -->
+    function clearform() {
+        document.getElementById("myform").reset();
+    }
+
+
+   var users = [];
+    function displaydata(fname, lname, eemail) {
+         
+        users.push({ "firstname": fname, "lastname": lname, "Email": eemail });
+        var row = "";
+        for (let i = 0; i < users.length; i++) 
+        row += "<tr><td>" + users[i].firstname + "</td><td>" + users[i].lastname + "</td><td>" + users[i].Email + "</td></tr>";
+ 
+        document.getElementById('table-body').innerHTML = row;
+    }
+
+
+
+
+
+   
+</script>
+
+</html>

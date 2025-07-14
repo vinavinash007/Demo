@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        /* Basic styling for readability, similar to your original intent */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        label {
+            display: inline-block;
+            width: 120px; /* Align labels */
+            margin-bottom: 10px;
+        }
+        input[type="button"] {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #displaymsg {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .error-message {
+            color: red;
+            background-color: #ffe0e0;
+            border: 1px solid red;
+        }
+        .success-message {
+            color: green;
+            background-color: #e0ffe0;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <form id="registrationForm">
+            <!-- Corrected IDs to match JavaScript -->
+            First Name: <input type="text" id="firstName" name="firstName" required /><br>
+            Last Name: <input type="text" id="lastName" name="lastName" required /><br>
+            Email: <input type="email" id="email" name="email" required /><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required /><br>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required /><br>
+
+            <input type="button" value="Submit" onclick="validateform()" />
+        </form>
+
+        <div id="displaymsg"></div> <!-- Message display div -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Array to store registered users
+        let users = [];
+
+        /**
+         * Displays a message in the designated message div.
+         * @param {string} message - The message to display.
+         * @param {string} type - 'error' for red styling, 'success' for green styling.
+         */
+        function showMessage(message, type) {
+            const msgDiv = document.getElementById("displaymsg");
+            msgDiv.innerHTML = message;
+            // Clear previous classes
+            msgDiv.classList.remove('error-message', 'success-message');
+            // Add appropriate class
+            if (type === 'error') {
+                msgDiv.classList.add('error-message');
+            } else if (type === 'success') {
+                msgDiv.classList.add('success-message');
+            }
+        }
+
+        /**
+         * Validates the registration form fields.
+         * If valid, adds user to the table and clears the form.
+         */
+        function validateform() {
+            // Get values from input fields and trim whitespace for text fields
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Clear any previous message
+            showMessage("", ""); // Clear message and styling
+
+            // Validation logic
+            if (firstName === "") {
+                showMessage('First Name is required', 'error');
+                return; // Stop function execution
+            } else if (lastName === "") {
+                showMessage('Last Name is required', 'error');
+                return;
+            } else if (email === "") {
+                showMessage('Email is required', 'error');
+                return;
+            } else if (password === "") {
+                showMessage('Password is required', 'error');
+                return;
+            } else if (confirmPassword === "") {
+                showMessage('Confirm Password is required', 'error');
+                return;
+            } else if (password !== confirmPassword) {
+                showMessage('Passwords do not match', 'error');
+                return;
+            }
+
+            // If all validations pass
+            showMessage('Registration successful!', 'success');
+
+            // Add user data to the global array
+            users.push({ "firstName": firstName, "lastName": lastName, "email": email });
+
+            // Display the updated data in the table
+            displayDataInTable();
+
+            // Clear the form fields after successful submission
+            document.getElementById("registrationForm").reset();
+        }
+
+        /**
+         * Renders the data from the 'users' array into the HTML table.
+         * This function rebuilds the entire table body each time it's called.
+         */
+        function displayDataInTable() {
+            const tableBody = document.getElementById('table-body');
+            let rowsHtml = ""; // Initialize an empty string to build the table rows
+
+            // Loop through the users array and create a table row for each user
+            for (let i = 0; i < users.length; i++) {
+                rowsHtml += `
+                    <tr>
+                        <td>${users[i].firstName}</td>
+                        <td>${users[i].lastName}</td>
+                        <td>${users[i].email}</td>
+                    </tr>
+                `;
+            }
+            // Update the innerHTML of the table body with all generated rows
+            tableBody.innerHTML = rowsHtml;
+        }
+
+        // Initial call to ensure the table body is initially empty or to display any pre-existing data
+        displayDataInTable();
+    </script>
+</body>
+</html>
